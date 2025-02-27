@@ -3,12 +3,14 @@ import {useSelector,useDispatch} from 'react-redux'
 import '../App.css'
 import { logout } from '../Redux/actions'
 import { useNavigate } from 'react-router-dom'
+import { getAuth } from 'firebase/auth'
+import { signOut } from 'firebase/auth'
 const Navbar = () => {
  const user = useSelector((state)=>state.auth.user)
  const dispatch = useDispatch()
  const history = useNavigate()
  const handleLogout = ()=>{
-    firebase.auth().signOut()
+    signOut(getAuth())
     .then(()=>{
         dispatch(logout())
         history.push("/")

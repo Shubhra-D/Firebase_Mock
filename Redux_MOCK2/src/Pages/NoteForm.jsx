@@ -3,6 +3,10 @@ import NoteList from "./NoteList";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Redux/actions";
 import { useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { provider } from "../../firebaseConfig";
+import { signInWithPopup } from "firebase/auth";
+
 
 const NoteForm = () => {
   const user = useSelector((state)=>state.auth.user);
@@ -10,7 +14,7 @@ const NoteForm = () => {
   const navigate = useNavigate()
 
   const handleLogin = ()=>{
-   firebase.auth().signInWithPopup(firebase.auth.GoogleAuthProvider())
+   signInWithPopup(getAuth(),provider)
    .then((response)=>{
     dispatch(login(response.user))
      navigate("/notelist")
