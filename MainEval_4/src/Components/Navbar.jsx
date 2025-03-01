@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
-import {Login} from '../Pages/Login'
+
  
 const Navbar = () => {
  const isLoggedIn = useSelector((state)=>state.auth.isLoggedIn)
@@ -19,9 +19,9 @@ const Navbar = () => {
                     <p>{user.email}</p>
                     <button onClick={()=>localStorage.removeItem(user)}>Logout</button>
                 </div>
-            ):(<button>
+            ):(
                 <Login/>
-            </button>)}
+            )}
         </nav>
     </div>
   )

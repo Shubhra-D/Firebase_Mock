@@ -2,7 +2,10 @@ import React from 'react'
 
 const MyBookCard = () => {
   return (
-    <div>MyBookCard</div>
+    <div>
+       
+
+    </div>
   )
 }
 

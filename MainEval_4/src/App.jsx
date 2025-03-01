@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './Components/Navbar'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
+import MyBooksPage from './Pages/MyBooksPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +15,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        
+        <Route path='/my-book' element={<MyBooksPage/>}/>
       </Routes>
     </>
   )
